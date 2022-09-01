@@ -179,7 +179,7 @@ int main()
                 }
             }
             
-            printf("You Choose Watermelom.\n 1 matermelon are 1500ks.\n");
+            printf("You Choose Watermelom.\n 1 watermelon are 1500ks.\n");
             printf("Quantity : ");
             scanf("%d", &qty);
             int amount = 1500;
