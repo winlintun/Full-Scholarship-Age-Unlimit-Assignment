@@ -5,11 +5,10 @@ using namespace std;
 
 class BankAccount {
 private:
-    int card_id;
+    int card_id=0;
     string username;
     string password;
-    int amount;
-    int getu;
+    int amount=0;
 
     
 public:
@@ -34,6 +33,16 @@ public:
     bool islogin(int id) {
         if (card_id != id) {
             cout << "user data is not found." << endl;
+        }
+    }
+    
+    bool isAccountExiting() {
+        if (card_id == 0) {
+            cout << "Not Created."<<endl;
+        }
+        else {
+         cout<< "User are exit\nTry Login."<<endl;   
+         exit(1);
         }
     }
     
@@ -91,6 +100,7 @@ int main()
         cout<<"1.Register Account."<< "\n2.Login Account." <<"\n0.Exiting"<<"\n>:"; cin >> getnum;
     
         if (getnum == 1) {
+            user1.isAccountExiting();
             // get data 
             cout<<"Enter id number: ";cin>>id;
             cout<<"Enter username: ";cin>>usr;
@@ -133,7 +143,7 @@ int main()
                 user1.check_account();
 
             } else {
-                cout<<"Wrong option!\n";
+                cout<<"Exitin program!\n";
                 break;
             }
         }
