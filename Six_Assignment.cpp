@@ -88,7 +88,7 @@ int Car::speed_Up_Down() {
     else if (choose == 2){
         for (int j = 0; j < size; ++j) {
             if(speed_car == c_speed[j]){
-                speed -= speed_car;
+                speed -= (speed)/2;
             }
             else {
                 cout<<"Invalid"<<endl;
