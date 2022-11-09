@@ -40,25 +40,57 @@ let name = document.getElementById('name');
 let phone = document.getElementById('phone');
 let d_num = document.getElementById('d_num');
 let text = document.getElementById('text');
-let select = document.getElementById("select");
-
-
-
-
-function show() {
-	text.innerHTML = `name: ${name.value} | phone: ${phone.value} | num: ${d_num.value}`;
-}
+let used_num = document.getElementById('u_num');
+let error = document.getElementById('error');
+let admin = document.getElementById('admin');
+// let select = document.getElementById("select");
 
 
 let userDatabase = [];
-let temp = [];
+let myindex = 0;
+let tempvalue = [];
 
-function insertData(name, phone, num) {
-	for(let i=0; i < select.value; i++) {
-		temp[i] = temp[name];
+function show() {
+		
+	let temp = [name.value, phone.value, d_num.value];
+	let tempLength = arraySize(temp);
+
+	for(let i=0; i<= 0; i++) {
+		if(userDatabase[i] == temp) {
+			myindex++;
+		} else {
+			userDatabase[myindex] = temp;
+			var value = userDatabase[myindex][2];
+
+			if(binarySearch(database, value) === true) {
+				tempvalue[myindex] = database[value];
+				database[value] = NaN;
+				console.log(database[value]);
+				text.innerHTML = `name: ${name.value} | phone: ${phone.value} | num: ${d_num.value}`;
+			} else {
+				error.innerHTML = `you can't use ${value}. This number is not found our database or already used.<br>Please try again!.`;
+			}
+
+			myindex++;
+		}	
+	}
+
+	console.log(userDatabase);
+	console.log('usertemp data', tempvalue);
+	console.log(database);
+	
+	used_num.innerHTML = `your used this number: ${tempvalue}`;
+	
+}	
+
+
+
+
+
+function show1() {
+	let mylength = arraySize(userDatabase);
+	for(let i=0; i < mylength; i++) {
+		let temp = `name: ${userDatabase[i][0]} | phone: ${userDatabase[i][1]} | number: ${userDatabase[i][2]}`;
+		console.log(temp);
 	}
 }
-
-
-insertData(name.value, phone.value, d_num.value);
-console.log(temp);
